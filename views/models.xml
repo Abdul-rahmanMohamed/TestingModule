@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="testingmodule.testingmodule_form_view">
+            <field name="name">testingmodule.testingmodule.form</field>
+            <field name="model">testingmodule.testingmodule</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Enter your name"/>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--    /////the beginning of (tree/List view) Course:class myfirstapp.myfirstapp no.1 ////-->
+        <record model="ir.ui.view" id="testingmodule.testingmodule_tree_view">
+            <field name="name">testingmodule.testingmodule_tree_view</field>
+            <field name="model">testingmodule.testingmodule</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="testingmodule.action_window">
+            <field name="name">Testing window</field>
+            <field name="res_model">testingmodule.testingmodule</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                  Create Your first Line Here  From Create Button!!
+                    or Import From your Local!!
+                    Tak your Time !@!
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem name="TestingModule" id="testingmodule.menu_root"/>
+        <menuitem name="OverView" id="testingmodule.menu_1" parent="testingmodule.menu_root"/>
+        <menuitem name="GO-TO" id="testingmodule.menu_1_list" parent="testingmodule.menu_1"
+                  action="testingmodule.action_window"/>
+    </data>
+</odoo>
